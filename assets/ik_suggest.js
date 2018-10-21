@@ -35,12 +35,12 @@ var pluginName = "ik_suggest",
 		plugin = this;
 		
 		plugin.notify = $('<div/>') // add hidden live region to be used by screen readers
-			.addClass('ik_readersonly');
+			.addClass('ik_readersonly')
 			.attr({
-        			'role': 'region',
-        			'aria-live': 'polite'
-    			})
-		;
+			  'role': 'region',
+				'aria-live': 'polite'
+				})
+			;
 		
 		$elem = plugin.element
 			.attr({
@@ -121,8 +121,8 @@ var pluginName = "ik_suggest",
 		
 		plugin = event.data.plugin;
 		$me = $(event.currentTarget);
-			
-switch (event.keyCode) {
+
+				switch (event.keyCode) {
     case ik_utils.keys.down: // select next suggestion from list   
                 selected = plugin.list.find('.selected');  
                 if(selected.length) {
@@ -141,7 +141,7 @@ switch (event.keyCode) {
                 break;
            
             default: // get suggestions based on user input
-
+			
 				plugin.list.empty();
 				
 				suggestions = plugin.getSuggestions(plugin.options.source, $me.val());
@@ -156,6 +156,9 @@ switch (event.keyCode) {
 				} else {
 					plugin.list.hide();
 				}
+
+			 break;
+    }
 
 	};
 	
@@ -223,8 +226,8 @@ switch (event.keyCode) {
 		}
 
 		if (r.length > 1) { // add instructions to hidden live area
-        		this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
-    		}
+			this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
+		}
 
 		return r;
 		
